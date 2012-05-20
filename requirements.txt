@@ -1,0 +1,5 @@
+alembic
+Flask
+Flask-SQLAlchemy
+Flask-Assets
+psycopg2

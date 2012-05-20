@@ -1,0 +1,4 @@
+*~
+*.pyc
+.vagrant
+venv
