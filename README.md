@@ -1,4 +1,19 @@
-After running `fab virtualenv.build` to install packages from requirements.txt,
-you should freeze installed packages at their installed versions by running:
+## Quick start
 
-    venv/bin/pip freeze > requirements.txt
+After installing [Vagrant](http://vagrantup.com/), create and boot the VM:
+
+	vagrant up
+
+SSH to the VM:
+
+	vagrant ssh
+
+Run your app:
+
+	fab app.run
+
+## Notes
+
+After initial boot, you should freeze the newly-installed pip packages at their versions:
+
+	pip freeze > requirements.txt
