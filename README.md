@@ -10,7 +10,7 @@ SSH to the VM:
 
 Run your app:
 
-	fab app.run
+	fab run
 
 ## Notes
 
