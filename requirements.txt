@@ -2,4 +2,6 @@ alembic
 Flask
 Flask-SQLAlchemy
 Flask-Assets
+gunicorn
 psycopg2
+setproctitle
