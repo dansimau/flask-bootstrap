@@ -4,7 +4,6 @@ from fabric.colors import cyan, red
 from fabric.utils import abort
 from utils import do
 
-@task
 def build():
     """Build or update the virtualenv."""
     with settings(hide('stdout')):

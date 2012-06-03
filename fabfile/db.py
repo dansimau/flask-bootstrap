@@ -5,7 +5,6 @@ from utils import do
 
 config_file_path = 'db/alembic.ini'
 
-@task
 def build():
     """Initialise and migrate database to latest version."""
     print(cyan('\nUpdating database...'))
