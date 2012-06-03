@@ -2,3 +2,5 @@
 *.pyc
 .vagrant
 venv
+app/static/assets
+app/static/.webassets-cache

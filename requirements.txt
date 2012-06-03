@@ -1,4 +1,5 @@
 alembic
+cssmin
 Flask
 Flask-SQLAlchemy
 Flask-Assets

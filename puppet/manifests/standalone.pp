@@ -10,6 +10,8 @@ include gunicorn
 include nginx
 include postgresql
 include python
+include sass
+include uglifyjs
 include vagrant
 
 nginx::site { 'gunicorn':
