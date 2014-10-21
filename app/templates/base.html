@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        {% for url in assets['css'].urls() %}
+        <link rel="stylesheet" href="{{ url }}" media="all" />
+        {%- endfor %}
+        <link href="/static/img/favicon.ico" rel="shortcut icon">
+    </head>
+
+    <body>
+
+        {% block header %}
+        {% endblock %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% for url in assets['js'].urls() %}
+        <script type="text/javascript" src="{{ url }}"></script>
+        {%- endfor %}
+
+        {% block script %}
+        {% endblock %}
+    </body>
+</html>

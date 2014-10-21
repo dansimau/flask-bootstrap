@@ -1,0 +1,34 @@
+    client_max_body_size 4G;
+    server_name _;
+
+    root <%= @app_path %>;
+
+    keepalive_timeout 5;
+
+    # Enable gzip
+    gzip on;
+    gzip_vary on;
+    gzip_disable "MSIE [1-6].(?!.*SV1)";
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+    <%- if @auth -%>
+    # password-protect site
+    auth_basic "Restricted";
+    auth_basic_user_file htpasswd-<%= @name %>;
+    <%- end -%>
+
+    location /static {
+        alias <%= @app_path %>/app/static;
+
+        expires max;
+        add_header Pragma cache;
+        add_header cache-control public;
+    }
+
+    location / {
+        uwsgi_pass <%= @name %>_uwsgi;
+        include uwsgi_params;
+
+        # Ensure HTTPS is set when it's supposed to be
+        uwsgi_param     HTTPS                   $https;
+    }

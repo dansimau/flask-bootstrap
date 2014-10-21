@@ -1,0 +1,12 @@
+*~
+*.cache
+*.pyc
+.codeintel/
+.vagrant*
+.venv
+.DS_Store
+npm-debug.log
+app/static/__bundles
+build/
+node_modules/
+components/

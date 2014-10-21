@@ -1,0 +1,14 @@
+##
+## THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+## <%= description %>
+##
+
+table <%= table %> {
+    chain <%= chain %> {
+        <% if host != false %>saddr <%= host %> {
+<% end -%>
+<% rules.each do |rule| %>            <%= rule %>;
+<% end -%>
+        <% if host != false %>}<% end -%>
+    }
+}

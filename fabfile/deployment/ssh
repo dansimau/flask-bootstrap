@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -f "${0%/*}/keys/id_rsa" ]; then
+    ssh -i "${0%/*}/keys/id_rsa" "$@"
+else
+    ssh -i "${0%/*}/keys/id_rsa" "$@"
+fi

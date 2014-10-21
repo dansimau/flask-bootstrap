@@ -1,0 +1,19 @@
+##
+## THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+
+@def &SERVICE($proto, $port) = {
+ proto $proto mod state state (NEW) dport $port ACCEPT;
+}
+
+@def &SERVICE_RANGE($proto, $port, $srange) = {
+ proto $proto mod state state (NEW) dport $port @subchain "$port" { saddr @ipfilter($srange) ACCEPT; }"
+}
+
+@def &TCP_UDP_SERVICE($port) = {
+ proto (tcp udp) mod state state (NEW) dport $port ACCEPT;
+}
+
+@def &TCP_UDP_SERVICE_RANGE($port, $srange) = {
+ proto (tcp udp) mod state state (NEW) dport $port @subchain "$port" { saddr @ipfilter($srange) ACCEPT; }"
+}

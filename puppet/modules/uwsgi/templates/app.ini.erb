@@ -1,0 +1,23 @@
+[uwsgi]
+socket = /tmp/<%= @name %>.uwsgi.sock
+chdir = /srv/www/app
+uid = www-data
+logto = /var/log/uwsgi/<%= @name %>.log
+reload-mercy = 30
+single-interpreter = true
+enable-threads = true
+virtualenv = <%= @venv %>
+listen = 2048
+
+<%- if @uwsgi_options -%>
+# Custom options
+    <%- @uwsgi_options.each do | key, value | -%>
+        <%- if value.kind_of?(Array) -%>
+            <%- value.each do | value | -%>
+<%= key %>=<%= value %>
+            <%- end -%>
+        <%- else -%>
+<%= key %>=<%= value %>
+        <%- end -%>
+    <%- end -%>
+<%- end -%>

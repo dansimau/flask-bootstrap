@@ -1,0 +1,8 @@
+Fabric
+Flask
+Flask-Script
+Flask-SQLAlchemy
+alembic
+git+git://github.com/tobiasandtobias/flask-assetslite.git@dev-cache#egg=Flask_AssetsLite
+psycopg2
+nose
